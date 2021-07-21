@@ -1,3 +1,4 @@
+#Django
 from django import forms
 from django.contrib.auth.models import User
 
@@ -40,3 +41,41 @@ class RegisterForm(forms.Form):
 			'class':'form-control',
 			})
 		)
+
+
+	def clean_username(self):
+		#obtenemos los inputs del formulario
+		username = self.cleaned_data.get('username')
+		#consultamos si existen en db
+		if User.objects.filter(username=username).exists():
+			raise forms.ValidationError('El username ya se encuentra en uso')
+		# de no existir
+		return username
+
+
+	def clean_email(self):
+		#obtenemos los inputs del formulario
+		email = self.cleaned_data.get('email')
+		#consultamos si existen en db
+		if User.objects.filter(email=email).exists():
+			raise forms.ValidationError('El email ya se encuentra en uso')
+		# de no existir
+		return email
+
+ 
+	# Validamos que las dos contraseñas sean iguales para ello
+	# sobreescribimos el metodo clean
+	def clean(self):
+		cleaned_data = super().clean()
+
+		if cleaned_data.get('password2') != cleaned_data.get('password'):
+			self.add_error('password2', 'El password no coincide')
+
+    
+    # método para crear nuevos usuarios
+	def save(self):
+		return User.objects.create_user(
+    		self.cleaned_data.get('username'),
+    		self.cleaned_data.get('email'),
+    		self.cleaned_data.get('password')
+    		)
