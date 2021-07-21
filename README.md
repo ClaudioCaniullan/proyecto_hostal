@@ -1,2 +1,2 @@
 # proyecto_hostal
-Prototipo de hostal básico 
+Prototipo de Hostal SevenStars
