@@ -2,6 +2,8 @@
 from django import forms
 from django.contrib.auth.models import User
 
+# Clase RegisterForm contiene los valores requeridos para completar un registro
+# y contiene los métodos para validar dichos inputs
 class RegisterForm(forms.Form):
 	username = forms.CharField(
 		required=True, 
@@ -16,7 +18,6 @@ class RegisterForm(forms.Form):
 	
 	email = forms.EmailField(
 		required=True,
-		# aplicamos estilo a nuestro input con widget
 		widget=forms.EmailInput(attrs={
 			'class':'form-control',
 			'id':'email',
@@ -26,7 +27,6 @@ class RegisterForm(forms.Form):
 		
 	password = forms.CharField(
 		required=True,
-		# aplicamos estilo a nuestro input con widget
 		widget=forms.PasswordInput(attrs={
 			'class':'form-control',
 			'id':'password',
@@ -36,7 +36,6 @@ class RegisterForm(forms.Form):
 	password2 = forms.CharField(
 		label='Confirmar password',
 		required=True,
-		# aplicamos estilo a nuestro input con widget
 		widget=forms.PasswordInput(attrs={
 			'class':'form-control',
 			})
@@ -63,8 +62,7 @@ class RegisterForm(forms.Form):
 		return email
 
  
-	# Validamos que las dos contraseñas sean iguales para ello
-	# sobreescribimos el metodo clean
+	# Validamos la igualdad de password y password2
 	def clean(self):
 		cleaned_data = super().clean()
 

@@ -2,22 +2,22 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-# User para dar de alta nuevos usuarios
+# Método User para dar de alta nuevos usuarios
 from django.contrib.auth.models import User
 
-# llamamos a la clase RegisterForm desde forms.py
+# Importamos clase RegisterForm desde forms.py
 from .forms import RegisterForm
 
 # products
 #from products.models import Product
 
 
-
+# método index
 def index(request):
 	return render(request,'index.html', {})
 
 
-
+# método login_usuario
 def login_usuario(request):
 	# si el usuario esta logeado, evitamos que vaya a login desde el navegador
 	if request.user.is_authenticated:
@@ -41,13 +41,13 @@ def login_usuario(request):
 	return render(request, 'login.html', {})
 
 
-
+# método logout_usuario
 def logout_usuario(request):
 	logout(request)
 	messages.success(request, 'Sesión cerrada exitosamente')
 	return redirect('login_usuario')
 
-
+# método registro_usuario
 def registro_usuario(request):
 	# si el usuario esta logeado, evitamos que vaya a registro desde el navegador
 	if request.user.is_authenticated:
