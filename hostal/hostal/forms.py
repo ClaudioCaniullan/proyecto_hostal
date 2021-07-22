@@ -2,8 +2,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
-# Clase RegisterForm contiene los valores requeridos para completar un registro
-# y contiene los métodos para validar dichos inputs
+# Register Usuarios nuevos 
 class RegisterForm(forms.Form):
 	username = forms.CharField(
 		required=True, 

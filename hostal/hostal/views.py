@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+
 # Método User para dar de alta nuevos usuarios
 from django.contrib.auth.models import User
 
@@ -32,6 +33,10 @@ def login_usuario(request):
 		password = request.POST.get('password')
 		# autenticamos al usuario con los valores dados en POST
 		user = authenticate(username=username, password=password)
+
+		if (user.username == 'gerente'):
+			return redirect('administrador')
+
 		if user:
 			# Usamos funcion login de Django para verificar datos en DB
 			login(request,user)

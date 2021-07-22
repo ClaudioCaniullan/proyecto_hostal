@@ -1,17 +1,19 @@
-<!-- Template Usuario -->
+<!--Template Administrador -->
 {% extends 'base.html'%}
 {%load static%}
 
 {% block content %}
 
-<h1>Hostal SevenStars</h1>
-
+<h1>ADMINISTRADOR Hostal SevenStars</h1>
+<h2>Listado de habitaciones</h2>
 <ul class="list-group">
 
     {% for habitacion in object_list %}
 	<li class="list-group-item">
 		<img src="{{ habitacion.image.url}}" alt='imagen hab' width="200" height="200" >
 	    {{habitacion.nombre}}
+	    {{habitacion.descripcion}}
+	    {{habitacion.precio}}
 	    {% if habitacion.estado %}
 	      <span class="text-success"> Disponible</span>
 	    {% else %}
@@ -20,7 +22,9 @@
 
 	</li>
     {% endfor%}
-
+    
 </ul>
-
+    <table>
+      {{ Habitaciones_form.as_p }}
+    </table>
 {% endblock %}
