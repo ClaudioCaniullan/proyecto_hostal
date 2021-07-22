@@ -8,13 +8,16 @@ from django.contrib.auth.models import User
 # Importamos clase RegisterForm desde forms.py
 from .forms import RegisterForm
 
-# products
-#from products.models import Product
+# importamos el model Habitaciones desde models.py
+from habitaciones.models import Habitaciones
 
 
 # método index
 def index(request):
-	return render(request,'index.html', {})
+	habitaciones = Habitaciones.objects.all().order_by('-id')
+	return render(request,'index.html', {
+		'habitaciones': habitaciones, 
+		})
 
 
 # método login_usuario

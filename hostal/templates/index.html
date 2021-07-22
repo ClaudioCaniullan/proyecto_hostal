@@ -6,4 +6,22 @@
 <h1>Hostal SevenStars</h1>
 <img src="{% static 'images/hab1.jpg'%}" alt="imagen1">
 
+<ul class="list-group">
+
+    {% for habitacion in habitaciones %}
+	<li class="list-group-item">
+	    {{habitacion.nombre}}
+	    {{habitacion.descripcion}}
+	    {{habitacion.precio}}
+	    {% if habitacion.estado %}
+	      <span class="text-success"> Disponible</span>
+	    {% else %}
+	    <span class="text-danger"> No Disponible</span>
+	    {% endif%}
+
+	</li>
+    {% endfor%}
+
+</ul>
+
 {% endblock %}
