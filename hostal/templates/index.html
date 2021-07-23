@@ -13,10 +13,13 @@
 		<img src="{{ habitacion.image.url}}" alt='imagen hab' width="200" height="200" >
 	    {{habitacion.nombre}}
 	    {{habitacion.precio}}
-	    {% if habitacion.estado %}
+
+	    {% if habitacion.estado == 'D' %}
 	      <span class="text-success"> Disponible</span>
+	    {% elif habitacion.estado == 'O'%}
+	      <span class="text-danger"> Ocupado </span>
 	    {% else %}
-	    <span class="text-danger"> No Disponible</span>
+	      <span class="text">En Mantención </span>
 	    {% endif%}
 
 	</li>

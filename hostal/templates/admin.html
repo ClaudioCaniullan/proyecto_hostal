@@ -14,10 +14,13 @@
 	    {{habitacion.nombre}}
 	    {{habitacion.descripcion}}
 	    {{habitacion.precio}}
-	    {% if habitacion.estado %}
+	    
+	    {% if habitacion.estado == 'D' %}
 	      <span class="text-success"> Disponible</span>
+	    {% elif habitacion.estado == 'O'%}
+	      <span class="text-danger"> Ocupado </span>
 	    {% else %}
-	    <span class="text-danger"> No Disponible</span>
+	      <span class="text">En Mantención </span>
 	    {% endif%}
 
 	</li>
