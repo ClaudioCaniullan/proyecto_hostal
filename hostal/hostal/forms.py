@@ -2,7 +2,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
-# Register Usuarios nuevos 
+# Register Usuarios nuevos
 class RegisterForm(forms.Form):
 	username = forms.CharField(
 		required=True, 
