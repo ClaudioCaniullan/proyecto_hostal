@@ -5,5 +5,6 @@ from . import views
 
 # Usaremos modelos como vistas
 urlpatterns = [
-   path('administrador', views.AdministradorListView.as_view(), name='administrador')
+   path('listar_hab', views.HabitacionesListView.as_view(), name='listar_hab'),
+   path('<pk>/delete_hab', views.HabitacionesDeleteView.as_view(), name='delete_hab'),
 ]

@@ -1,0 +1,31 @@
+<!-- Template Usuario -->
+{% extends 'habitaciones/base2.html' %}
+{%load static%}
+
+{% block content %}
+
+<h1>Hostal SevenStars LISTAR HAB</h1>
+
+<ul class="list-group">
+
+    {% for habitacion in object_list %}
+	<li class="list-group-item">
+		<img src="{{ habitacion.image.url}}" alt='imagen hab' width="200" height="200" >
+	    {{habitacion.nombre}}
+	    {{habitacion.precio}}
+
+	    {% if habitacion.estado == 'D' %}
+	      <span class="text-success"> Disponible</span>
+	    {% elif habitacion.estado == 'O'%}
+	      <span class="text-danger"> Ocupado </span>
+	    {% else %}
+	      <span class="text">En Mantención </span>
+	    {% endif%}
+
+
+	</li>
+    {% endfor%}
+
+</ul>
+
+{% endblock %}

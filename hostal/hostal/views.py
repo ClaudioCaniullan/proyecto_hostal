@@ -7,10 +7,10 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 # Importamos clase RegisterForm desde forms.py
-from .forms import RegisterForm
+from habitaciones.forms import UsuarioForms
 
 # importamos el model Habitaciones desde models.py
-from habitaciones.models import Habitaciones
+from habitaciones.models import Habitaciones, Usuario
 
 
 # método index
@@ -62,7 +62,7 @@ def registro_usuario(request):
 		return redirect('index')
 
 	#Generamos una instacia de RegisterForm para usar como formulario 
-	form = RegisterForm(request.POST or None)
+	form = UsuarioForms(request.POST or None)
     
     # validamos los datos del formulario
 	if request.method == 'POST' and form.is_valid():

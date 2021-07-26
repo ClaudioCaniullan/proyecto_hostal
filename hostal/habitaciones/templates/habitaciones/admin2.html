@@ -1,0 +1,33 @@
+<!--Template Administrador -->
+{% extends 'habitaciones/base2.html' %}
+{%load static%}
+
+{% block content %}
+
+<h1>ADMINISTRADOR Hostal SevenStars</h1>
+<h2>Listado de habitaciones</h2>
+<ul class="list-group">
+
+    {% for habitacion in object_list %}
+	<li class="list-group-item">
+		<img src="{{ habitacion.image.url}}" alt='imagen hab' width="200" height="200" >
+	    {{habitacion.nombre}}
+	    {{habitacion.descripcion}}
+	    {{habitacion.precio}}
+	    
+	    {% if habitacion.estado == 'D' %}
+	      <span class="text-success"> Disponible</span>
+	    {% elif habitacion.estado == 'O'%}
+	      <span class="text-danger"> Ocupado </span>
+	    {% else %}
+	      <span class="text">En Mantención </span>
+	    {% endif%}
+
+	</li>
+    {% endfor%}
+    
+</ul>
+    <table>
+      {{ Habitaciones_form.as_p }}
+    </table>
+{% endblock %}
