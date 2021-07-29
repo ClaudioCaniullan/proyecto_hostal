@@ -8,6 +8,27 @@
 
 <ul class="list-group">
 
+	<thead>
+		<tr>nombre</tr>
+		<tr>nombre</tr>
+	</thead>
+    
+    <tbody>
+    	{% if object_list %}
+    	   {% for usuario in usuario_list %}
+    	   <tr>
+    	   	<td>{{usuario.username}}</td>
+    	   	<td>{{usuario.email}}</td>
+    	   	<td>
+    	   		<a class="btn btn-primary btn-xs" href="{% url 'habitaciones:editar_hab' pk=usuario.rutUsuario %}">editar</a>
+    	   		<a class="btn btn-primary btn-xs" href="{% url 'habitaciones:eliminar_hab' pk=usuario.rutUsuario %}">eliminar</a>
+    	   	</td>
+    	   </tr>
+    	   {% endfor %}
+    	{% endif %}
+    </tbody>
+
+
     {% for habitacion in object_list %}
 	<li class="list-group-item">
 		<img src="{{ habitacion.image.url}}" alt='imagen hab' width="200" height="200" >
@@ -26,6 +47,6 @@
 	</li>
     {% endfor%}
 
-</ul>
+ </ul>
 
 {% endblock %}

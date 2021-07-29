@@ -20,30 +20,27 @@ class HabitacionesListView(ListView):
 		return context
 """
 
-# CRUD Habitaciones FALTA IMPLEMENTAR EN EL TEMPLATES ADMINISTRADOR
+# CRUD Habitaciones 
 # fields = [nombre, descripcion, precio, estado, imagen]
 
 class HabitacionesListView(ListView):
 	model = Habitaciones
 	#fields='__all__'
-	template_name = 'Habitaciones/habitaciones_list.html'
+	template_name = 'habitaciones/habitaciones_list.html'
 
-class HabitacionesCreate(CreateView):
+class HabitacionesCreateView(CreateView):
 	model = Habitaciones
-	#fields='__all__'
 	form_class = HabitacionesForms
-	template_name = 'Habitaciones/habitaciones_list.html'
+	template_name = 'habitaciones/habitaciones_form.html'
 	success_url=reverse_lazy('habitaciones:listar_hab')
 
 class HabitacionesUpdateView(UpdateView):
 	model = Habitaciones
-	#fields='__all__'
 	form_class = HabitacionesForms
-	template_name = 'Habitaciones/habitaciones_list.html'
+	template_name = 'habitaciones/habitaciones_form.html'
 	success_url=reverse_lazy('habitaciones:listar_hab')
 
 class HabitacionesDeleteView(DeleteView):
 	model = Habitaciones
-	#fields='__all__'
-	template_name = 'Habitaciones/habitaciones_list.html'
+	template_name = 'habitaciones/habitaciones_delete.html'
 	success_url=reverse_lazy('habitaciones:listar_hab')
