@@ -5,30 +5,18 @@
 
 <h1>habitaciones form</h1>
 
-<ul class="list-group">
+<form accept="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+	
+{%csrf_token%}
+	<div class="row" form-group>
+		<div class="col" col-md-3><label for="text-input" class="form-control-label">nombre</label></div>
+		<div class="col-12 col-md-9">{{form.precio}}</div>
+	</div>
 
-	<thead>
-		<tr>nombre</tr>
-		<tr>email</tr>
-	</thead>
-    
-    <tbody>
-    	{% if object_list %}
-    	   {% for habitaciones in object_list %}
-    	   <tr>
-    	   	<td>{{habitaciones.nombre}}</td>
-    	   	<td>{{habitaciones.precio}}</td>
-    	   	<td>
-    	   		<!--
-    	   		<a class="btn btn-primary btn-xs" href="{% url 'habitaciones:editar_hab' habitaciones.pk %}">editar</a>
-    	   		<a class="btn btn-primary btn-xs" href="{% url 'habitaciones:eliminar_hab' habitaciones.pk %}">eliminar</a>
-    	   	-->
-    	   	</td>
-    	   </tr>
-    	   {% endfor %}
-    	{% endif %}
-    </tbody>
-
-
- </ul>
+	<div class="text-center">
+		<button type="submit" class="btn btn-primary">Registrar</button>
+		<button type="submit" class="btn btn-danger">Cancelar</button>
+	</div>
+	
+</form>
 {% endblock %}

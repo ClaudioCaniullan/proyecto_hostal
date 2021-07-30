@@ -37,5 +37,5 @@ class Usuario(models.Model):
 	email = models.EmailField(max_length=20)
 	password = models.CharField(max_length=10)
 	#password2 = models.CharField(max_length=10)
-	nom_hab = models.ForeignKey(Habitaciones, on_delete=models.CASCADE)
+	nom_hab = models.ForeignKey(Habitaciones, on_delete=False)
 	

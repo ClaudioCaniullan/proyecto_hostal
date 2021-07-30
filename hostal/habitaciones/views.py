@@ -20,6 +20,7 @@ class HabitacionesListView(ListView):
 	model = Habitaciones
 	#fields='__all__'
 	template_name = 'habitaciones/habitaciones_list.html'
+	query_set = Habitaciones.objects.all()
 
 class HabitacionesCreateView(CreateView):
 	model = Habitaciones
@@ -32,10 +33,9 @@ class HabitacionesUpdateView(UpdateView):
 	form_class = HabitacionesForms
 	template_name = 'habitaciones/habitaciones_form.html'
 	success_url=reverse_lazy('habitaciones:listar_hab')
-	context_object_name = 'habitaciones'
+	#context_object_name = 'habitaciones'
 
 class HabitacionesDeleteView(DeleteView):
 	model = Habitaciones
-	template_name = 'habitaciones/habitaciones_delete.html'
-	context_object_name = 'habitaciones'
+	#template_name = 'habitaciones/habitaciones_delete.html'
 	success_url=reverse_lazy('habitaciones:listar_hab')

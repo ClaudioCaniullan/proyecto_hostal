@@ -10,7 +10,6 @@
 
 	<thead>
 		<tr>nombre</tr>
-		<tr>email</tr>
 	</thead>
     
     <tbody>
@@ -20,10 +19,10 @@
     	   	<td>{{habitaciones.nombre}}</td>
     	   	<td>{{habitaciones.precio}}</td>
     	   	<td>
-    	   		<!--
+    	   		
     	   		<a class="btn btn-primary btn-xs" href="{% url 'habitaciones:editar_hab' habitaciones.pk %}">editar</a>
     	   		<a class="btn btn-primary btn-xs" href="{% url 'habitaciones:eliminar_hab' habitaciones.pk %}">eliminar</a>
-    	   	-->
+    	   	
     	   	</td>
     	   </tr>
     	   {% endfor %}
