@@ -1,6 +1,9 @@
 # models app habitaciones
 from django.db import models
+#acceder a rutUsuario con rutUsuario_id
+from django.db.models.fields import CharField, TextField, DecimalField
 from django.core import validators
+from django.forms.formsets import ORDERING_FIELD_NAME
 
 
 # Create your models here.

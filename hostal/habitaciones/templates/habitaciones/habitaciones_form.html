@@ -1,9 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>hab crear y editar </title>
-</head>
-<body>
+{% extends 'habitaciones/base2.html' %}
+{%load static%}
 
-</body>
-</html>
+{% block content %}
+
+<h1>habitaciones form</h1>
+
+<ul class="list-group">
+
+	<thead>
+		<tr>nombre</tr>
+		<tr>email</tr>
+	</thead>
+    
+    <tbody>
+    	{% if object_list %}
+    	   {% for habitaciones in object_list %}
+    	   <tr>
+    	   	<td>{{habitaciones.nombre}}</td>
+    	   	<td>{{habitaciones.precio}}</td>
+    	   	<td>
+    	   		<!--
+    	   		<a class="btn btn-primary btn-xs" href="{% url 'habitaciones:editar_hab' habitaciones.pk %}">editar</a>
+    	   		<a class="btn btn-primary btn-xs" href="{% url 'habitaciones:eliminar_hab' habitaciones.pk %}">eliminar</a>
+    	   	-->
+    	   	</td>
+    	   </tr>
+    	   {% endfor %}
+    	{% endif %}
+    </tbody>
+
+
+ </ul>
+{% endblock %}
